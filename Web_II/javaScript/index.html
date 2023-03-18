@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS - Avanzado</title>
+    <script src="../js/funciones.js"></script>
+</head>
+<body>
+    <h1>Ejemplos com JS - Avanzado</h1>
+
+    <script>
+        
+        
+        /*
+        //Array
+        let nros = [34,2,21,78];
+        //recorrer el array
+        for (i = 0; i < nros.length; i++){
+            console.log(`El valor del arreglo es posicion ${i} es ${nros[i]}`);
+        }
+        */
+
+        /*
+        //Array
+        let nros = [34,2,21,78];
+        //recorrer el array
+
+        for (nro of nros){
+            console.log(nro);
+        }
+        */
+
+        /*
+        //Array
+        let nros = [34,2,21,78];
+        //recorrer el array
+        nros.forEach(numero => {
+            console.log(numero)
+        })
+        */
+
+        /*
+         //Array
+         let nros = [34,2,21,78];
+        //recorrer el array
+        nros.map(item => {
+            console.log(item)
+        })
+        */
+
+
+        /*
+        //buscar datos en un array
+        let nros = [34,2,21,78];
+        let encuentra = nros.find(elemento => elemento == 210);
+        if (encuentra != undefined){
+            console.log("Se Encontro el Numero");
+        }
+        else{
+            console.log("No se Encontro el Numero");
+        }
+        */
+
+
+        console.log(subsidio(2000000));
+
+        //buscar datos en un array
+
+       
+        let nros = [34,2,21,78];
+        console.log(nros.find(num => num === 121) != undefined ? "Encontro" : "no hallado");
+        let oPersona = {ident:'100', nombre:'Teresa Valencia', salario:2500, estado:true}
+        console.log(oPersona);
+        console.log(oPersona.nombre);
+        for(let key in oPersona){
+            console.log(`${key} => ${oPersona[key]}`)
+        }
+
+         //arreglo de objetos
+        let empleados = [
+            {cedula:'10', nombres:'Pepe Perez', telefono:'2606060',disponible:false},
+            {cedula:'11', nombres:'Carolina Herrera', telefono:'2304545',disponible:true},
+            {cedula:'12', nombres:'Paco Rabane', telefono:'1542542',disponible:false},
+        ]
+        console.log(empleados);
+
+ 
+        //Utilizando los callback
+        //invocar la funcion de nivel superior, SALUDAR
+
+        //saludar (mensaje);
+
+        
+        //saludar("Hola Mundo", function(mensaje){
+          //  console.log(mensaje)
+        //})
+
+        operacion(45,6,"/",(cifra1, cifra2, operador)=>{
+            let resultado = 0
+            switch(operador){
+                case "+":
+                    resultado = cifra1 + cifra2;
+                break;
+                case "-":
+                    resultado = cifra1 - cifra2;
+                break;
+                case "*":
+                    resultado = cifra1 * cifra2;
+                break;
+                case "/":
+                    resultado = cifra1 / cifra2;
+                break;
+
+            }
+            console.log(`El resultado de la operacion es: ${resultado}` );
+        })
+
+
+        parimpar(8, function(nro){
+            console.log(nro % 2 == 0 ? "Par" : "Impar");
+        })
+
+
+        parimpar(122, (minumero)=>{
+            console.log(minumero % 2 == 0 ? "Par" : "Impar");
+        })
+
+
+        competencia (4,5,2.3,(m1,m2,m3)=>{
+            console.log((m1*30/100)+(m2*35/100)+(m3*35/100) >= 4 ? "Es Competente" : "Aun no es Competente");
+        })
+
+
+        login("Hlopez", "123", 1,(user, passwd, rol)=>{
+            if (rol == 1){
+                console.log(`El usuario ${user} es Administrador`)
+            }else{
+                console.log(`El usuario ${user} es Invitado`)
+            }
+        })
+
+        let resSearch = searchEmp('10', empleados);
+        console.log(resSearch);
+        
+
+        //utilizar la funcion searchEmp1
+
+        searchEmp1("121", empleados, (ident, arrbuscar)=>{
+            let mFind = arrbuscar.find(item => item.cedula == ident);
+            if (mFind != undefined){
+                console.log(mFind)
+            }else{
+                console.log("Id de Persona no Hallado...")
+            }
+        })
+        
+
+    </script>
+    
+</body>
+</html>

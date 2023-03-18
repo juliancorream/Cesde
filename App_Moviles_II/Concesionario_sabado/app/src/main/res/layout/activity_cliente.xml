@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ClienteActivity"
+    android:background="@drawable/fondo_degradado">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="Clientes"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/etidentificacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:hint="Escriba identificacion"
+        android:textColorHint="@color/white"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/etnombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:hint="Escriba nombre"
+        android:textColorHint="@color/white"/>
+
+    <EditText
+        android:id="@+id/etcorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:hint="Escriba correo"
+        android:textColorHint="@color/white"
+        android:inputType="textEmailAddress" />
+
+    <CheckBox
+        android:id="@+id/cbactivo"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:enabled="false"
+        android:text=" Activo"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button40"
+            android:layout_width="175dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="Guardar"
+            android:text="Guardar"
+            android:textSize="18dp"
+            android:backgroundTint="@color/boton"
+            app:cornerRadius="25dp"/>
+
+        <Button
+            android:id="@+id/button50"
+            android:layout_width="175dp"
+            android:layout_height="50dp"
+            android:onClick="Consultar"
+            android:layout_marginLeft="7dp"
+            android:layout_weight="1"
+            android:text="Consultar"
+            android:textSize="18dp"
+            android:backgroundTint="@color/boton"
+            app:cornerRadius="25dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="175dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:onClick="Anular"
+            android:text="Anular"
+            android:textSize="18dp"
+            android:backgroundTint="@color/boton"
+            app:cornerRadius="25dp"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="175dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="7dp"
+            android:layout_weight="1"
+            android:onClick="Cancelar"
+            android:text="Cancelar"
+            android:textSize="18dp"
+            android:backgroundTint="@color/boton"
+            app:cornerRadius="25dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button49"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="Regresar"
+            android:text="Regresar"
+            android:textSize="18dp"
+            android:backgroundTint="@color/boton"
+            app:cornerRadius="25dp"/>
+
+    </LinearLayout>
+</LinearLayout>
