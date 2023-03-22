@@ -30,7 +30,7 @@
         android:gravity="center"
         android:hint="Fecha"
         android:textColorHint="@color/white"
-        android:inputType="date" />
+        android:inputType="text" />
 
 
     <LinearLayout
@@ -52,7 +52,7 @@
         android:gravity="center"
         android:hint="Codigo"
         android:textColorHint="@color/white"
-        android:inputType="number" />
+        android:inputType="text" />
 
     <Button
         android:id="@+id/btnconsultarcodigo"
@@ -88,13 +88,13 @@
             android:gravity="center"
             android:hint="Identificacion"
             android:textColorHint="@color/white"
-            android:inputType="number" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/btnconsultaridentificacion"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:onClick="Consultar"
+            android:onClick="ConsultarCliente"
             android:layout_weight="1"
             android:layout_marginTop="3dp"
             android:layout_marginLeft="7dp"
@@ -140,13 +140,13 @@
             android:gravity="center"
             android:hint="Placa"
             android:textColorHint="@color/white"
-            android:inputType="number" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/btnconsultarplaca"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:onClick="Consultar"
+            android:onClick="ConsultarPlaca"
             android:layout_weight="1"
             android:layout_marginTop="3dp"
             android:layout_marginLeft="7dp"
@@ -226,12 +226,12 @@
             app:cornerRadius="25dp"/>
 
         <Button
-            android:id="@+id/button50"
+            android:id="@+id/btnbuscar"
             android:layout_width="175dp"
             android:layout_height="50dp"
             android:layout_marginLeft="7dp"
             android:layout_weight="1"
-            android:text="Anular"
+            android:text="Buscar"
             android:textSize="18dp"
             android:backgroundTint="@color/boton"
             app:cornerRadius="25dp"/>
@@ -251,19 +251,19 @@
             android:layout_width="175dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:onClick="Guardar"
+            android:onClick="limpiar_campos"
             android:text="Limpiar"
             android:textSize="18dp"
             android:backgroundTint="@color/boton"
             app:cornerRadius="25dp"/>
 
         <Button
-            android:id="@+id/btnadicionar"
+            android:id="@+id/btnanular"
             android:layout_width="175dp"
             android:layout_height="50dp"
             android:layout_marginLeft="7dp"
             android:layout_weight="1"
-            android:text="Adicionar"
+            android:text="Anular"
             android:textSize="18dp"
             android:backgroundTint="@color/boton"
             app:cornerRadius="25dp"/>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript- Avanzado- ES6</title>
+    <script src="JS/arrowsf.js"></script>
+</head>
+<body>
+    <h1>Ejemplos con JavaScript- JS</h1>
+    <script>
+        //Definición de varaibles
+        let nombre = "Juan Acevedo";
+        nombre = "Pedro Gonzalez"
+        let salario = 1500
+        let estado = false;
+        let anros = [2,5,6,3,56]
+        const PI = 3.1416
+        /* if (!estado){
+            salario = 6500
+            console.log(salario);
+            }
+        // console.log(salario);*/
+        // console.log("Nombre: "+nombre);
+        //String template
+        console.log(`Nombre: ${nombre} y el salario por 2 es ${salario * 2}`);
+        // Operador condicional o ternario
+        console.log(salario > 3000 || estado ? "Subsidio" : salario * 3);
+        let observación = salario > 2000 ? "Tiene vacaciones" : "No tiene vacaciones";
+        console.log(observación)
+        for (i = 0; i < anros.length; i++){
+            console.log(anros[i])
+        }
+        // Generar código para listar los N números de 
+        // la siguiente serie (fibonacci): 0,1,,1,2,3,4,5,8,13,21,34,55,89,...
+        let n = 8
+        let ant = 0;
+        let sig = 1;
+        let fibo = [0,1];
+        console.log(`${ant}, ${sig}`)
+        let cont = 3;
+        do{
+        //while (cont <= n){
+        //for (j = 1; j <= n -2; j++){
+            sum = ant + sig
+            //console.log(`, ${sum}`);
+            fibo.push(sum)
+            ant = sig;
+            sig = sum;
+            cont++; //cont +=1//cont = cont + 1
+        }while (cont <= n)
+        console.log(fibo);
+        document.write(fibo);
+        // Selecto múltiple
+        //let ciudad = prompt('Ingrese la ciudad: ')
+        let ciudad = "Cali"
+        let valorpasaje = 0 
+        switch(ciudad){
+            case 'Medellín':
+                valorpasaje = 50000;
+                break;
+            case 'Cali':
+                valorpasaje = 60000
+                break;
+            case 'Cartagena':
+                valorpasaje = 120000
+                break;
+            default: 
+                valorpasaje = 0;
+                break;
+        }
+        console.log(`El valor del pasaje es: ${valorpasaje}`)
+        /*
+        Función: Conjunto de instrucciones que serán invocadas desde otra función
+        o programa principal (Programación Modular)
+        */ 
+        // Genera una función que permita realizar cualquier operación (básicas)
+        // con 2 números
+        function operation(n1,n2,operator="+"){
+            let producto = 0;
+            let operacion;
+            switch(operator){
+                case "+": 
+                    operacion = "suma";
+                    producto = n1 + n2;
+                    break;
+                case "-": 
+                    operacion = "resta";
+                    producto = n1 - n2;
+                    break;
+                case "*": 
+                    operacion = "multiplicación";
+                    producto = n1 * n2
+                    break;
+                case "/": 
+                    operacion = "división";
+                    producto = n1 / n2;
+                    break;
+            }
+            console.log(`El resultado de la operación ${operacion} es: ${producto}`)
+        }
+        // como invocar la función operation
+        operation(23,4,"+")
+        operation(30,40, "-")
+        operation(100,4, "*")
+        operation(20,4)
+        // Generar un función que permita retornar la definitiva de 3 notas (30%, 35%, 35% respectivamente)
+        function average(nota1, nota2, nota3){
+        return (nota1*0.30)+(nota2*0.35)+(nota3*0.35)
+        }
+        //invocar la funcion average
+        let def = average(1.5, 4.5, 3.5);
+        console.log(`Su nota definitiva es: ${def}`)
+        let nro1 = 45;
+        let nro2 = 55;
+        console.log(`El resultado de la suma es: ${suma(nro1,nro2)}`);
+        let misuma = suma(67,233);
+        console.log(misuma)
+        //    if (suma(3,5)>10){
+        //     console.log("Tiene derechos ...")
+        //    }
+        //    else{
+        //     console.log("No estas cumpliendo con tus deberes ...")
+        //    }
+        console.log(suma (6,9) > 10 ? "Tienes derechos ..." : "Cumple tus deberes ...");
+        console.log(`El rsultado de la resta es: ${resta(6,2)}`);
+        console.log(`El subsidio de transporte es de: ${subsidio(1250000)}`);
+        //Arrays
+        let nros = [34,2,21,78];
+        // Recorrer el array
+        // for (i = 0; i < nros.length; i++){
+        // console.log(`El valor del arreglo en posición ${i} es ${nros[i]}`);
+        // }
+        // for (nro of nros){
+        //     console.log(nro)
+        // }
+        // nros.forEach(numero => {
+        //     console.log(numero)
+        // })
+        // nros.map(item => {
+        //     console.log(item)
+        // })
+        // Buscar un dato en array
+        // let encuentra = nros.find(elemento => elemento === 21);
+        // if (encuentra != undefined){
+        //     console.log("Se encontró el numero");
+        // }
+        // else{
+        //     console.log("No se encontró el numero");
+        // }
+        console.log(nros.find(num => num === 121) != undefined ? "Se encontró" : "No hallado");
+        // objetos
+        let oPersona = {ident:'100',nombre:'Teresa Valencia',salrio:2500,estado:true}
+        console.log(oPersona);
+        console.log(oPersona.nombre);
+        for (let key in oPersona){
+            console.log(`${key} => ${oPersona[key]}`);
+        }
+        let empleados = [
+            {cedula:'10',nombres:'Pepe Perez',telefono:'55555111215',disponible:false},
+            {cedula:'11',nombres:'Juan Acevedo',telefono:'152405',disponible:true},
+            {cedula:'12',nombres:'Paco Rabane',telefono:'564545',disponible:true},
+        ]
+        console.log(empleados)
+        console.log("Utilizando los callbacks");
+        //Invocar la función de nivel superior, saludar
+        //saludar(mensaje)
+        //login("Pepe Perez","123", function(username){
+        //     console.log(`Bienvenid@ ${username}`)
+        // })
+        operacion(45, 6, "*",(cifra1, cifra2, operador)=>{
+            let resultado = 0
+            switch(operador){
+                case "+":
+                    resultado = cifra1 + cifra2;
+                    break;
+                case "-":
+                    resultado = cifra1 - cifra2;
+                    break;
+                case "*": 
+                    resultado = cifra1 * cifra2;
+                    break;
+                case "/":
+                    resultado = cifra1 + cifra2;
+                    break;
+            }
+            console.log(`El resultado de la operación es: ${resultado}`)
+        })
+        //INVOCAR LA FUNCIÓN PARIMPAR
+        parimpar(8, function(nro){
+            console.log(nro % 2 == 0 ? "Par" : "Impar");
+        })
+        competencia(4, 5, 2.3,(m1, m2, m3)=>{
+            console.log((m1*30/100)+(m2*35/100)+(m3*35/100) >= 4 ? "Es competente" : "Aún no es competente")
+        })
+        login("hlopez","123",0,(user,passwd,rol)=>{
+            if (rol == 1){
+                console.log(`El usuario ${user} es Administrador`);
+            }
+            else{
+                console.log(`El usuario ${user} es Invitado`);
+            }
+        })
+        let resSearch = searchEmp('11', empleados);
+        console.log(resSearch)
+        // Utilizar la función searchEmp1
+        searchEmp1('10', empleados,(id, arrbuscar)=>{
+            let mFind = arrbuscar.find(item => item.cedula == id);
+            if (mFind != undefined){
+                console.log(mFind)
+            }
+            else{
+                console.log("Id de persona No hallado ...")
+            }
+        })
+    </script>
+</body>
+</html>

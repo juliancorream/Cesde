@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Manejo de Carrito de Compra</h1>
+        <div class="alert d-none" role="alert" id="message">
+            
+          </div>
+        <form>
+            <div class="mb-3">
+                <label for="reference" class="form-label">Referencia</label>
+                <input type="text" class="form-control" id="reference" placeholder="Ingrese referencia">
+                <span id="mreference" style="color: red; font-weight: bold;"></span>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripcion</label>
+                <input type="text" class="form-control" id="description" placeholder="Ingrese descripción">
+                <span id="mdescription" style="color: red; font-weight: bold;"></span>
+            </div>
+            <div class="mb-3">
+                <label for="unitprice" class="form-label">Precio Unitario</label>
+                <input type="text" class="form-control" id="unitprice" placeholder="Ingrese precio unitario">
+                <span id="munitprice" style="color: red; font-weight: bold;"></span>
+            </div>
+            <div class="mb-3">
+                <label for="stock" class="form-label">Existencia</label>
+                <input type="text" class="form-control" id="stock" placeholder="Ingrese existencia">
+                <span id="mstock" style="color: red; font-weight: bold;"></span>
+            </div>
+            <button type="button" class="btn btn-primary" id="btnadd">Agregar</button>
+            <button type="button" class="btn btn-secondary" id="btnsearch">Buscar</button>
+            <button type="button" class="btn btn-success" id="btnupdate">Actualizar</button>
+            <button type="button" class="btn btn-danger" id="btndelete">Eliminar</button>
+            <button type="button" class="btn btn-warning" id="btnlist">Listar</button>
+        </form>
+    </div>
+    <script>
+        //Referenciar los elementos de HTML con id en JS
+        let oldReferenceIndex = 0;
+        let oldReference = '';
+        let message = document.getElementById('message');
+        let reference = document.querySelector("#reference");
+        let description = document.getElementById('description');
+        let unitprice = document.querySelector("#unitprice");
+        let stock = document.getElementById('stock');
+        let mreference = document.getElementById('mreference');
+        let mdescription = document.getElementById('mdescription');
+        let munitprice = document.getElementById('munitprice');
+        let mstock = document.getElementById('mstock');
+        let btnadd = document.querySelector("#btnadd");
+        let btnsearch = document.querySelector("#btnsearch");
+        let btnupdate = document.querySelector("#btnupdate");
+        let btndelete = document.querySelector("#btndelete");
+        let btnlist = document.querySelector("#btnlist");
+        // Definir el arreglo de objetos para los productos
+        let productos = []
+        //  Eventos
+        reference.addEventListener('focus',()=>{
+            mreference.textContent = "Ingrese la referencia del producto";
+        })
+        reference.addEventListener('blur', ()=>{
+            mreference.textContent = "";
+        })
+        description.addEventListener('focus',()=>{
+            mdescription.textContent = "Ingrese la descripción del producto";
+        })
+        description.addEventListener('blur', ()=>{
+            mdescription.textContent = "";
+        })
+        unitprice.addEventListener('focus',()=>{
+            munitprice.textContent = "Ingrese el precio unitario del producto";
+        })
+        unitprice.addEventListener('blur', ()=>{
+            munitprice.textContent = "";
+        })
+        stock.addEventListener('focus',()=>{
+            mstock.textContent = "Ingrese el numero de existencias del producto";
+        })
+        stock.addEventListener('blur', ()=>{
+            mstock.textContent = "";
+        })
+        // Evento click del boton agregar
+        btnadd.addEventListener('click',()=>{
+            if (reference.value != "" && description.value != "" && unitprice.value != "" && stock.value != ""){
+                // Guardar el producto en el arreglo de objetos productos
+                // Buscar la referencia del producto..
+                let buscarProducto = productos.find(prod => prod.reference == reference.value)
+                message.classList.remove('d-none');
+                if (buscarProducto == undefined){//No encuentra el objeto con esa referencia
+                // Generar el objeto con cada uno de los datos del producto contenidos en cada input
+                let nvoproducto = {reference:reference.value, description:description.value, unitprice:parseInt(unitprice.value), stock:parseInt(stock.value)}
+                productos.push(nvoproducto);
+                console.log(productos);
+                // Emitir el mensaje de: Producto guardado correctamente en el elemento message
+                message.classList.remove("alert-danger");
+                message.classList.add("alert-success");
+                message.textContent = "Producto guardado correctamente.."
+                // Retardo de 3 segundos  (simular una comunicación asincrónica con un server)
+                setTimeout(()=>{
+                    message.classList.remove("alert-success");
+                    message.classList.add('d-none')
+                },3000 )
+                }
+                else{
+                message.classList.add("alert-danger");
+                message.textContent = "Referencia ya existente. Intentelo de nuevo.."
+
+                }
+
+            }
+            else{
+                if (reference.value == ""){
+                    mreference.textContent = "La referencia es obligatoria - * -";
+                }
+                if (description.value == ""){
+                    mdescription.textContent = "La descripción es obligatoria -*-";
+                }
+                if (unitprice.value == ""){
+                    munitprice.textContent = "El precio unitario es obligatorio -*-";
+                }
+                if (stock.value == ""){
+                    mstock.textContent = "El numero de existencias es obligatorio -*-";
+                }
+                message.classList.remove('d-none');
+                message.classList.add("alert-danger");
+                message.textContent = "Todos los campos son obligatorios"
+            }
+        })
+        // Envento botón buscar
+        btnsearch.addEventListener('click',()=>{
+            //Buscar por Referencia
+            if (reference.value != ""){
+                //buscar la referencia en el arreglo de objetos productos
+                let mprodFind = productos.find(prod => prod.reference == reference.value);
+                if (mprodFind != undefined){//si encuentra la referencia
+                    //Tomar el indece de la referencia encontrada
+                    oldReferenceIndex = productos.findIndex(prod => prod.reference == reference.value);
+                    oldReference = reference.value;
+                    // asignar el contenido del objeto, en sus campos, a cada input
+                    description.value = mprodFind.description;
+                    unitprice.value = mprodFind.unitprice;
+                    stock.value = mprodFind.stock;
+
+                    /*
+                    //desestructurar el objeto con cada key como variable
+                    const {reference,description,unitprice,stock} = mprodFind;
+                    description.value = description;
+                    unitprice.value = unitprice;
+                    stock.value = stock;
+                    */
+                    message.classList.add('d-none');
+                }
+                else{
+                    message.classList.remove('d-none');
+                    message.classList.remove('alert-success');
+                    message.classList.remove('alert-danger');
+                    message.classList.add('alert-danger');
+                    message.textContent = "Referencia no Existe. Inténtelo con Otra"
+
+                }
+            }
+            
+        })
+
+        btnupdate.addEventListener('click',()=>{
+            //Buscar la referemcia del producto para chequear que esta no exista
+            //if (oldReference == reference.value){
+                //Chequear si la nueva referencia existe...
+                let mprodFind = productos.find(prd => prd.reference == reference.value);
+                     
+                if (mprodFind == undefined){
+                    productos.splice(oldReferenceIndex,1,{reference:reference.value,description:description.value,unitprice:unitprice.value,stock:stock.value})
+                }
+                else{
+                    message.classList.remove("d-none");
+                    message.classList.add("alert-danger");
+                    message.textContent = "Referencia Existente. Intentelo de nuevo.."
+                }
+                //productos.splice(oldReferenceIndex,1,{reference:reference.value,description:description.value,unitprice:unitprice.value,stock:stock.value})
+            //}
+
+        })
+
+
+
+        btndelete
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
