@@ -28,7 +28,7 @@
         android:layout_marginLeft="15dp"
         android:textSize="20dp"
         android:gravity="center"
-        android:hint="Fecha"
+        android:hint="Fecha AAAA/MM/DD"
         android:textColorHint="@color/white"
         android:inputType="text" />
 
@@ -117,6 +117,7 @@
         android:layout_marginRight="15dp"
         android:textSize="20dp"
         android:gravity="center"
+
         android:hint="Nombre"
         android:textColorHint="@color/white"
         android:inputType="text" />

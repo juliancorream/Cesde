@@ -1,0 +1,21 @@
+.banner{
+    background-image: url("../img/banner.jpg");
+    background-position: top center; /*arriba y centro del banner*/
+    background-size: cover; /*adaptacion de la imagen a la pantalla*/
+    padding: 30%;
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+}
+
+.banner::after{
+    content: '';
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: -1;
+}

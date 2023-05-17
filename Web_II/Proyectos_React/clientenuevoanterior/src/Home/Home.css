@@ -1,0 +1,23 @@
+.banner {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/musicosjacm.appspot.com/o/banner.png?alt=media&token=9d24d9b6-0181-405f-a364-cdfc94a442ab");
+  background-position: top center; /*arriba y centro del banner*/
+  background-size: cover; /*adaptacion de la imagen a la pantalla*/
+  background-attachment: fixed;
+  padding: 25%;
+  /*position: relative;
+  z-index: 1;*/
+}
+
+/*
+.banner::after{
+    content: '';
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.4;
+    z-index: -1;
+}
+*/

@@ -173,7 +173,7 @@
             //Buscar la referemcia del producto para chequear que esta no exista
             //if (oldReference == reference.value){
                 //Chequear si la nueva referencia existe...
-                let mprodFind = productos.find(prd => prd.reference == reference.value);
+                let mprodFind = Libros.find(prd => prd.reference == reference.value);
                      
                 if (mprodFind == undefined){
                     productos.splice(oldReferenceIndex,1,{reference:reference.value,description:description.value,unitprice:unitprice.value,stock:stock.value})
